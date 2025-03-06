@@ -1,21 +1,14 @@
-//
-//  ContentView.swift
-//  SwiftUIMain
-//
-//  Created by NamNT97 on 6/3/25.
-//
-
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack(alignment: .top) {
+            Rectangle().fill(.yellow)
+                .frame(width: .infinity, height: .infinity)
+            Rectangle().fill(.blue)
+                .stroke(.orange, lineWidth: 10)
+                .frame(width: 350, height: 500)
         }
-        .padding()
     }
 }
 
