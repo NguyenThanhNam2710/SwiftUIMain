@@ -14,24 +14,24 @@ struct Demo01: View {
                     }
             }
     }
+    
+    struct ExtractedView: View {
+        var body: some View {
+            Circle().fill(.blue)
+            //.border(.black, width: 5)
+                .stroke(Color.red, lineWidth: 4)
+                .frame(width: 300, height: 300)
+                .overlay {
+                    Path { path in
+                        path.move(to: CGPoint(x: 0, y: 0))
+                        path.addArc(center: CGPoint(x: 50, y: 150), radius: 10, startAngle: .zero, endAngle: .zero, clockwise: true)
+                        path.addLine(to: CGPoint(x: 200, y: 200))
+                    }.stroke(Color.gray, lineWidth: 5)
+                }
+        }
+    }
 }
 
 #Preview {
-    ContentView()
-}
-
-struct ExtractedView: View {
-    var body: some View {
-        Circle().fill(.blue)
-        //.border(.black, width: 5)
-            .stroke(Color.red, lineWidth: 4)
-            .frame(width: 300, height: 300)
-            .overlay {
-                Path { path in
-                    path.move(to: CGPoint(x: 0, y: 0))
-                    path.addArc(center: CGPoint(x: 50, y: 150), radius: 10, startAngle: .zero, endAngle: .zero, clockwise: true)
-                    path.addLine(to: CGPoint(x: 200, y: 200))
-                }.stroke(Color.gray, lineWidth: 5)
-            }
-    }
+    Demo01()
 }
